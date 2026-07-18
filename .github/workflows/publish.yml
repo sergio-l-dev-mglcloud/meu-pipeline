@@ -30,11 +30,12 @@ jobs:
             type=raw,value=latest
             type=sha,format=short
       - name: Validar credenciais do Container Registry
+        env:
+          USERNAME: ${{ secrets.MAGALU_REGISTRY_USERNAME }}
+          PASSWORD: ${{ secrets.MAGALU_REGISTRY_PASSWORD }}
         run: |
-          U="${{ secrets.MAGALU_REGISTRY_USERNAME }}"
-          P="${{ secrets.MAGALU_REGISTRY_PASSWORD }}"
-          [ -z "$U" ] && { echo "::error::USERNAME ausente"; exit 1; }
-          [ -z "$P" ] && { echo "::error::PASSWORD ausente"; exit 1; }
+          if [ -z "$USERNAME" ]; then echo "::error::USERNAME ausente"; exit 1; fi
+          if [ -z "$PASSWORD" ]; then echo "::error::PASSWORD ausente"; exit 1; fi
       - name: Login no Magalu Cloud Container Registry
         uses: docker/login-action@v3
         with:
