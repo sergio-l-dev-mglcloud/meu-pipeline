@@ -12,9 +12,9 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do código
+      - name: Checkout do cÃ³digo
         uses: actions/checkout@v4
-      - name: Definir endereço da imagem
+      - name: Definir endereÃ§o da imagem
         id: image
         run: |
           IMG="${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/${{ env.IMAGE_NAME }}"
@@ -50,7 +50,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      - name: Resumo da execução
+      - name: Resumo da execuÃ§Ã£o
         run: |
           IMG="${{ steps.image.outputs.image_repository }}"
           echo "### Imagem publicada :rocket:" >> $GITHUB_STEP_SUMMARY
