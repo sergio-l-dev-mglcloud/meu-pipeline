@@ -1,3 +1,6 @@
+**Aluno:** Sergio Pereira Lima
+**Repositório do Projeto:** https://github.com/sergio-l-dev-mglcloud/meu-pipeline
+
 # Architecture Documentation
 
 Este documento descreve a arquitetura da API de Pedidos, seus requisitos não-funcionais e as decisões que a sustentam.
