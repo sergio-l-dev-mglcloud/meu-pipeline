@@ -59,3 +59,13 @@ flowchart TD
     SM -. "Scrape (15s)" .-> Prometheus
     
     Registry -. "Pull de Imagem\nHTTPS" .-> API_Pods
+
+---
+
+## 3. Requisitos Não-Funcionais (RNFs) & Estilo Arquitetural
+
+- **Estilo Arquitetural:** Monolito Modular em Camadas com Implantação Cloud-Native em Contêineres.
+- **SLA / Disponibilidade Alvo:** 99.9% (garantido por HPA com mínimo de 2 réplicas e banco de dados externo ao cluster).
+- **Latência Alvo (P95):** < 500ms sob carga normal (validado continuamente por script k6).
+- **Vazão Alvo (RPS):** ~200 a 300 requisições por segundo (com escalonamento automático até 6 réplicas).
+- **Teto de Custo (FinOps):** R$ 150,00/mês (limitado pelo HPA a no máximo 6 réplicas, com requests baixos de 100m CPU e 128Mi RAM por pod).
